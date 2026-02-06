@@ -62,8 +62,8 @@ local root_markers2 = {
          checkThirdParty = false,
          library = {
            vim.env.VIMRUNTIME,
-           -- Depending on the usage, you might want to add additional paths
-           -- here.
+           -- Depending on the usage, you might want to add additional paths here.
+	   '${XDG_CONFIG_HOME}/nvim/',
            -- '${3rd}/luv/library',
            -- '${3rd}/busted/library',
          },
