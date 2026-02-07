@@ -21,6 +21,23 @@ return { {
 	config = function()
 	--enabling language servers, currently using the default configurations unless otherwise specified
 	vim.lsp.enable('luaconf')
+	vim.lsp.config('clangd', {
+ 		settings = {
+			InlayHints = {
+				enabled = true,
+
+				
+			},
+			Diagnostics = {
+			
+			},
+			Completion = {
+				Allscopes = "Yes",
+				HeaderInsertion = "IWYU",
+				CodePatterns = "All",
+				},
+		}
+	})
 	vim.lsp.enable('clangd') 
 	end,		
 	--extending a config??
@@ -37,12 +54,6 @@ return { {
 		        require("lint").try_lint()
 		end,
 	})
-	opts = function (_, opts)
-		local esp32 = require("esp32")
-		opts.servers = opts.servers or {}
-		opts.servers.clangd = esp32.lsp_config()
-		return opts
-	end
 	end
 },
 {
@@ -50,16 +61,10 @@ return { {
 	dependencies = {"nvim-lua/plenary.nvim"}
 
 },
-{
-	"nvim-mini/mini.completion",
-	version = false,
-	config = function()
-		require('mini.completion').setup({})
-	end
-},
 {"lervag/vimtex"},
 {"nvim-mini/mini.pairs", version = false},
 {"sudormrfbin/cheatsheet.nvim"},
 {"nvim-lua/popup.nvim"},
 {"BurntSushi/ripgrep"},
+{"hrsh7th/nvim-cmp"},
 }
