@@ -15,17 +15,15 @@ return { {
 	end
 	
 },
-{"lervag/vimtex"},
 {
 	"neovim/nvim-lspconfig",
 	lazy= false,
 	config = function()
 	--enabling language servers, currently using the default configurations unless otherwise specified
 	vim.lsp.enable('luaconf')
-	vim.lsp.enable('ccls')
-
-	end
-
+	vim.lsp.enable('clangd') 
+	end,		
+	--extending a config??
 },
 {
 	'mfussenegger/nvim-lint',
@@ -39,18 +37,20 @@ return { {
 		        require("lint").try_lint()
 		end,
 	})
+	opts = function (_, opts)
+		local esp32 = require("esp32")
+		opts.servers = opts.servers or {}
+		opts.servers.clangd = esp32.lsp_config()
+		return opts
 	end
-
+	end
 },
-{"nvim-mini/mini.pairs", version = false},
-{"sudormrfbin/cheatsheet.nvim"},
-{"nvim-lua/popup.nvim"},
 {
 	"nvim-telescope/telescope.nvim", version = '*',
 	dependencies = {"nvim-lua/plenary.nvim"}
 
 },
-{"BurntSushi/ripgrep"},
+{"Aietes/esp32.nvim"},
 {
 	"nvim-mini/mini.completion",
 	version = false,
@@ -58,4 +58,9 @@ return { {
 		require('mini.completion').setup({})
 	end
 },
+{"lervag/vimtex"},
+{"nvim-mini/mini.pairs", version = false},
+{"sudormrfbin/cheatsheet.nvim"},
+{"nvim-lua/popup.nvim"},
+{"BurntSushi/ripgrep"},
 }
