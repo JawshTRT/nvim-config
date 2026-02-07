@@ -50,7 +50,6 @@ return { {
 	dependencies = {"nvim-lua/plenary.nvim"}
 
 },
-{"Aietes/esp32.nvim"},
 {
 	"nvim-mini/mini.completion",
 	version = false,
