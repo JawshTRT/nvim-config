@@ -13,7 +13,7 @@ return { {
 	config = function()
 		require('nvim-treesitter').install{'c', 'lua', 'rust', 'python'}
 	end
-	
+
 },
 {
 	"neovim/nvim-lspconfig",
@@ -26,10 +26,10 @@ return { {
 			InlayHints = {
 				enabled = true,
 
-				
+
 			},
 			Diagnostics = {
-			
+
 			},
 			Completion = {
 				Allscopes = "Yes",
@@ -38,8 +38,8 @@ return { {
 				},
 		}
 	})
-	vim.lsp.enable('clangd') 
-	end,		
+	vim.lsp.enable('clangd')
+	end,
 	--extending a config??
 },
 {
@@ -55,6 +55,22 @@ return { {
 		end,
 	})
 	end
+},
+{
+	"yuukiflow/Arduino-Nvim",
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+		"neovim/nvim-lspconfig",
+	},
+	config = function()
+		-- Load Arduino plugin for .ino files
+		vim.api.nvim_create_autocmd("FileType", {
+		pattern = "arduino",
+		callback = function()
+			require("Arduino-Nvim")
+		end,
+		})
+	end,
 },
 {
 	"nvim-telescope/telescope.nvim", version = '*',
