@@ -20,27 +20,7 @@ return { {
 	lazy= false,
 	config = function()
 	--enabling language servers, currently using the default configurations unless otherwise specified
-	vim.lsp.enable('luaconf')
-	vim.lsp.config('clangd', {
- 		settings = {
-			InlayHints = {
-				enabled = true,
-
-
-			},
-			Diagnostics = {
-
-			},
-			Completion = {
-				Allscopes = "Yes",
-				HeaderInsertion = "IWYU",
-				CodePatterns = "All",
-				},
-		}
-	})
-	vim.lsp.enable('clangd')
 	end,
-	--extending a config??
 },
 {
 	'mfussenegger/nvim-lint',
@@ -56,6 +36,7 @@ return { {
 	})
 	end
 },
+
 {
 	"yuukiflow/Arduino-Nvim",
 	dependencies = {
@@ -82,5 +63,4 @@ return { {
 {"sudormrfbin/cheatsheet.nvim"},
 {"nvim-lua/popup.nvim"},
 {"BurntSushi/ripgrep"},
-{"hrsh7th/nvim-cmp"},
 }
