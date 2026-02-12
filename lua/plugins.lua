@@ -10,8 +10,12 @@ return { {
 {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
+	build = ":TSUpdate",
 	config = function()
-		require('nvim-treesitter').install{'c', 'lua', 'rust', 'python'}
+		vim.api.nvim_create_autocmd('FileType', {
+			pattern  = {'python', 'lua', 'c', 'latex'},
+			callback = function() vim.treesitter.start() end,
+		})
 	end
 
 },
@@ -55,9 +59,28 @@ return { {
 },
 {
 	"nvim-telescope/telescope.nvim", version = '*',
-	dependencies = {"nvim-lua/plenary.nvim"}
+	dependencies = {"nvim-lua/plenary.nvim"},
+	config = function()
+		require("telescope").setup {
+			extensions = {
+				file_browser = {
+					theme = "ivy",
+					hijack_netrw = true,
+				},		
+			}
+
+		}
+		require('telescope').load_extension('file_browser')
+
+	end
 
 },
+{
+	"nvim-telescope/telescope-file-browser.nvim",
+	dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim",
+	}
+},
+
 {"lervag/vimtex"},
 {"nvim-mini/mini.pairs", version = false},
 {"sudormrfbin/cheatsheet.nvim"},

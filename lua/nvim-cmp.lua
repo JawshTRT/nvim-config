@@ -88,11 +88,13 @@ return {
 			    capabilities = capabilities})
 			  vim.lsp.config('arduino_language_server', {capabilities = capabilities})
 			  vim.lsp.config('texlab', {capabilities = capabilities})
+			  vim.lsp.config('pyright', {capabilities = capabilities})
 			  --Enabling lsp servers
 			  vim.lsp.enable('texlab')
 			  vim.lsp.enable('arduino_language_server')
 			  vim.lsp.enable('luaconf')
 			  vim.lsp.enable('clangd')
+			  vim.lsp.enable('pyright')
 
 
 
