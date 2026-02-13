@@ -27,37 +27,6 @@ return { {
 	end,
 },
 {
-	'mfussenegger/nvim-lint',
-	config = function()
-		require("lint").linters_by_ft = {
-			lua = {"luac"},
-			c = {"cppcheck"}
-		}
-		vim.api.nvim_create_autocmd({"BufWritePost"}, {
-  		callback = function()
-		        require("lint").try_lint()
-		end,
-	})
-	end
-},
-
-{
-	"yuukiflow/Arduino-Nvim",
-	dependencies = {
-		"nvim-telescope/telescope.nvim",
-		"neovim/nvim-lspconfig",
-	},
-	config = function()
-		-- Load Arduino plugin for .ino files
-		vim.api.nvim_create_autocmd("FileType", {
-		pattern = "arduino",
-		callback = function()
-			require("Arduino-Nvim")
-		end,
-		})
-	end,
-},
-{
 	"nvim-telescope/telescope.nvim", version = '*',
 	dependencies = {"nvim-lua/plenary.nvim"},
 	config = function()
@@ -80,8 +49,6 @@ return { {
 	dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim",
 	}
 },
-
-{"lervag/vimtex"},
 {
 	"nvim-mini/mini.pairs",
 	config = function()
@@ -89,6 +56,8 @@ return { {
 	end
 
 , version = false},
+{"gnu-octave/vim-octave"},
+{"lervag/vimtex"},
 {"sudormrfbin/cheatsheet.nvim"},
 {"nvim-lua/popup.nvim"},
 {"BurntSushi/ripgrep"},
