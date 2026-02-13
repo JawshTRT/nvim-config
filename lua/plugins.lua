@@ -82,7 +82,13 @@ return { {
 },
 
 {"lervag/vimtex"},
-{"nvim-mini/mini.pairs", version = false},
+{
+	"nvim-mini/mini.pairs",
+	config = function()
+		require("mini.pairs").setup()
+	end
+
+, version = false},
 {"sudormrfbin/cheatsheet.nvim"},
 {"nvim-lua/popup.nvim"},
 {"BurntSushi/ripgrep"},
