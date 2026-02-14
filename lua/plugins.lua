@@ -1,4 +1,4 @@
-return { {
+return { {	
 	"folke/tokyonight.nvim",
 	lazy=false,
 	priority = 1000,
@@ -13,7 +13,7 @@ return { {
 	build = ":TSUpdate",
 	config = function()
 		vim.api.nvim_create_autocmd('FileType', {
-			pattern  = {'python', 'lua', 'c', 'latex'},
+			pattern  = {'python', 'lua', 'c', 'latex', 'javascript'},
 			callback = function() vim.treesitter.start() end,
 		})
 	end
@@ -35,7 +35,7 @@ return { {
 				file_browser = {
 					theme = "ivy",
 					hijack_netrw = true,
-				},		
+				},
 			}
 
 		}
@@ -47,7 +47,14 @@ return { {
 {
 	"nvim-telescope/telescope-file-browser.nvim",
 	dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim",
-	}
+}
+},
+{
+	"nvim-telescope/telescope-project.nvim",
+	dependencies = {"nvim-telescope/telescope.nvim"},
+	config = function()
+		require'telescope'.load_extension('project')
+	end
 },
 {
 	"nvim-mini/mini.pairs",

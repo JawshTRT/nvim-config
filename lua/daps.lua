@@ -3,29 +3,28 @@ return {
 {
 	"mfussenegger/nvim-dap",
 	config = function()
-		require("dap").adapters.debugpy = {
-			type = "executable",
-			command = "/usr/lib/python3.14/site-packages/debugpy/",
-			name = "debugpy"
+		--Setting up debug adapters
+		require("dap").adapters["pwa-node"] = {
+			type = "server",
+			host = "localhost",
+			port = "${port}",
+			executable = {
+				command = "node",
+				args = "/usr/lib/node_modules/vscode-js-debug/src/dapDebugServer.js", "${port}",
+			}
+
 		}
-		local debugpy = {
-			name = "Launch debugpy",
-			type = "debugpy",
+		--Setting up configurations
+		require("dap").configurations.javascript = {
+			{
+			type = "pwa-node",
 			request = "launch",
-			program = function()
-				return vim.fn.input("/usr/lib/python3.14/site-packages/debugpy/__main__.py",
-				vim.fn.getcwd() .. "/",
-				"python`"
-				)
-			end,
-			cwd = "${workspaceFolder}$",
-			stopOnEntry = false,
-			args = {},
-			runInTerminal = false,
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
 		}
-		require("dap").configurations.python = {
-			debugpy
-		}
+
 	    --Mapping keybinds for debugger
 	    vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
 	    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
@@ -34,6 +33,8 @@ return {
 	    vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
 	    vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
 	end,
+
+	
 
 
 },
