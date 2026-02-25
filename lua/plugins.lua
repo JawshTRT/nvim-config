@@ -1,4 +1,4 @@
-return { {	
+return { {
 	"folke/tokyonight.nvim",
 	lazy=false,
 	priority = 1000,
@@ -63,7 +63,7 @@ return { {
 	end
 
 , version = false},
-{"gnu-octave/vim-octave"},
+{'tranvansang/octave.vim'},
 {"lervag/vimtex"},
 {"sudormrfbin/cheatsheet.nvim"},
 {"nvim-lua/popup.nvim"},
