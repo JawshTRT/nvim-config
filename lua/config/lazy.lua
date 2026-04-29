@@ -28,6 +28,7 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "nvim-cmp"},
     { import = "daps"},
+    { import = "octave"}
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
