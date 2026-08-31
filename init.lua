@@ -24,7 +24,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = group_cdpwd,
     pattern = "*",
     callback = function()
-        vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+        local filepath = vim.fn.expand("%:p:h")
+
+        if filepath == "" or vim.fn.isdirectory(filepath) == 0 then return end
+
+        -- Only change directories if it's a real existing directory
+        vim.api.nvim_set_current_dir(filepath)
     end
 })
 
