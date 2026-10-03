@@ -1,0 +1,3 @@
+## Debugger
+Toggle Debugger GUI | <leader>du
+

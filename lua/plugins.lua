@@ -64,11 +64,6 @@ return { {
 
 , version = false},
 {
-    "YousefHadder/markdown-plus.nvim",
-    ft = "markdown",
-    opts = {}
-},
-{
     "stevearc/overseer.nvim",
     --- @module 'overseer',
     --- @type overseer.SetupOpts,
@@ -77,11 +72,6 @@ return { {
         require("overseer").setup()
     end
 },
-{'tranvansang/octave.vim'},
-{"lervag/vimtex"},
-{"sudormrfbin/cheatsheet.nvim"},
-{"nvim-lua/popup.nvim"},
-{"BurntSushi/ripgrep"},
 {
 	"HadyMash/greekvars.nvim",
 	ft = {"lua", "python", "javascript", "typescript", "cpp", "octave"},
@@ -89,4 +79,31 @@ return { {
 		require("greekvars").setup()
 	end,
 },
+{
+    "richwomanbtc/overleaf.nvim",
+    config = function()
+        require('overleaf').setup({
+            log_level = 'debug';
+        })
+    end,
+},
+{'tranvansang/octave.vim'},
+{"lervag/vimtex"},
+{
+    "sudormrfbin/cheatsheet.nvim",
+    config = function()
+        require("cheatsheet").setup({
+            bundled_cheatsheets = {
+                disabled = {"nerd-fonts", "unicode", "regex"}
+            },
+            bundled_plugin_cheatsheets = {
+                disabled = {"gitsigns.nvim"},
+            }
+        })
+    end
+},
+
+{"nvim-lua/popup.nvim"},
+{"BurntSushi/ripgrep"},
+{"nvim-neotest/nvim-nio"},
 }
