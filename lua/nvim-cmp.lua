@@ -86,16 +86,14 @@ return {
 			    capabilities = capabilities})
 			  vim.lsp.config('clangd', {
 			    capabilities = capabilities})
-			  vim.lsp.config('arduino_language_server', {capabilities = capabilities})
 			  vim.lsp.config('texlab', {capabilities = capabilities})
+              --Python language server
 			  vim.lsp.config('pyright', {capabilities = capabilities})
               vim.lsp.config('java_language_server', {capabilities = capabilities})
 			  --Typescript/Javascript language server
 			  vim.lsp.config('ts_ls', {capabilities = capabilities})
 			  --Enabling lsp servers
 			  vim.lsp.enable('texlab')
-			  vim.lsp.enable('arduino_language_server')
-              vim.lsp.enable('java_language_server')
 			  vim.lsp.enable('luaconf')
 			  vim.lsp.enable('clangd')
 			  vim.lsp.enable('pyright')

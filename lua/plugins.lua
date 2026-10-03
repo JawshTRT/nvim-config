@@ -63,9 +63,30 @@ return { {
 	end
 
 , version = false},
+{
+    "YousefHadder/markdown-plus.nvim",
+    ft = "markdown",
+    opts = {}
+},
+{
+    "stevearc/overseer.nvim",
+    --- @module 'overseer',
+    --- @type overseer.SetupOpts,
+    opts = {},
+    config = function()
+        require("overseer").setup()
+    end
+},
 {'tranvansang/octave.vim'},
 {"lervag/vimtex"},
 {"sudormrfbin/cheatsheet.nvim"},
 {"nvim-lua/popup.nvim"},
 {"BurntSushi/ripgrep"},
+{
+	"HadyMash/greekvars.nvim",
+	ft = {"lua", "python", "javascript", "typescript", "cpp", "octave"},
+	config = function()
+		require("greekvars").setup()
+	end,
+},
 }
