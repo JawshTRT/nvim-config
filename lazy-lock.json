@@ -4,6 +4,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "greekvars.nvim": { "branch": "main", "commit": "875bd73a24096f959097736d3f6009d84507f0d6" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
+  "markdown-plus.nvim": { "branch": "main", "commit": "89c8d538ef5d68caddf44b957378e4719811b3ca" },
   "mini.pairs": { "branch": "main", "commit": "b1c5a726921b7a8c9321e9a7a208aa0571de5810" },
   "mlang": { "branch": "main", "commit": "8c20963ff286e46eb9df3910240ffdac5d332940" },
   "nvim-cmp": { "branch": "main", "commit": "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3" },
