@@ -20,6 +20,16 @@ return { {
 
 },
 {
+    "danymat/neogen",
+    config = function()
+        require('neogen').setup {
+            enabled = true,
+            input_after_comment = true,
+            snippet_engine = "snippy",
+        }
+    end
+},
+{
 	"neovim/nvim-lspconfig",
 	lazy= false,
 	config = function()
@@ -87,8 +97,6 @@ return { {
         })
     end,
 },
-{'tranvansang/octave.vim'},
-{"lervag/vimtex"},
 {
     "sudormrfbin/cheatsheet.nvim",
     config = function()
@@ -102,7 +110,8 @@ return { {
         })
     end
 },
-
+{'tranvansang/octave.vim'},
+{"lervag/vimtex"},
 {"nvim-lua/popup.nvim"},
 {"BurntSushi/ripgrep"},
 {"nvim-neotest/nvim-nio"},
